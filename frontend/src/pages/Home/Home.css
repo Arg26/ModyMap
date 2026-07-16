@@ -1,0 +1,141 @@
+.home{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#f5f5f5;
+
+    transition:.3s;
+
+}
+
+.home-content{
+
+    flex:1;
+
+    display:flex;
+
+    overflow:hidden;
+
+}
+
+/* DARK MODE */
+
+.home.dark{
+
+    background:#111;
+
+    color:white;
+
+}
+
+.home.dark .sidebar{
+
+    background:#1b1b1b;
+
+    color:white;
+
+}
+
+.home.dark .navigation-card{
+
+    background:#252525;
+
+    color:white;
+
+}
+
+.home.dark .route-summary{
+
+    background:#2b2b2b;
+
+    border-color:#444;
+
+}
+
+.home.dark .building-info{
+
+    background:#252525;
+
+    color:white;
+
+}
+
+.home.dark input{
+
+    background:#2a2a2a;
+
+    color:white;
+
+}
+
+.home.dark .search-results{
+
+    background:#2a2a2a;
+
+    color:white;
+
+}
+
+.home.dark .search-results li:hover{
+
+    background:#850000;
+
+}
+
+.home.dark .directory{
+
+    background:#252525;
+
+}
+
+.home.dark button{
+
+    transition:.25s;
+
+}
+
+.home-error{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:12px;
+
+}
+
+.home-error h2{
+
+    color:#850000;
+
+    margin:0;
+
+}
+
+.home-error p{
+
+    color:#666;
+
+}
+
+@media(max-width:768px){
+
+    .home-content{
+
+        flex-direction:column;
+
+    }
+
+}

@@ -1,0 +1,149 @@
+.nlp-search{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+.home.dark .nlp-search{
+
+    background:#242424;
+
+}
+
+.nlp-search h3{
+
+    margin:0;
+
+    color:#850000;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.home.dark .nlp-search h3{
+
+    color:#ff9b9b;
+
+}
+
+.nlp-search p{
+
+    margin:6px 0 16px;
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+.home.dark .nlp-search p{
+
+    color:#c7c7c7;
+
+}
+
+.nlp-input{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.nlp-input input{
+
+    flex:1;
+
+    padding:13px 16px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.home.dark .nlp-input input{
+
+    background:#2f2f2f;
+
+    color:white;
+
+    border-color:#444;
+
+}
+
+.nlp-input input:focus{
+
+    border-color:#850000;
+
+    box-shadow:0 0 0 3px rgba(133,0,0,.12);
+
+}
+
+.nlp-input button{
+
+    border:none;
+
+    background:#850000;
+
+    color:white;
+
+    padding:0 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.nlp-input button:hover{
+
+    background:#680000;
+
+}
+
+.nlp-input button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+@media(max-width:768px){
+
+    .nlp-input{
+
+        flex-direction:column;
+
+    }
+
+    .nlp-input button{
+
+        width:100%;
+
+        height:48px;
+
+    }
+
+}

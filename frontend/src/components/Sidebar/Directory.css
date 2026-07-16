@@ -1,0 +1,52 @@
+.directory{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.directory-title{
+    margin:0;
+    font-size:1rem;
+    color:#850000;
+    font-weight:600;
+}
+
+.category-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.category-chip{
+
+    border:none;
+    cursor:pointer;
+
+    background:#f4f4f4;
+
+    color:#444;
+
+    border-radius:999px;
+
+    padding:10px 16px;
+
+    transition:.25s;
+
+    font-size:14px;
+}
+
+.category-chip:hover{
+
+    background:#850000;
+
+    color:white;
+
+}
+
+.category-chip.active{
+
+    background:#850000;
+
+    color:white;
+
+}

@@ -1,0 +1,241 @@
+.register-page{
+
+    display:flex;
+
+    height:100vh;
+
+    background:#f5f5f5;
+
+}
+
+.register-left{
+
+    flex:1;
+
+    background:#850000;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.register-left h1{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.register-left p{
+
+    font-size:1.2rem;
+
+    opacity:.9;
+
+    text-align:center;
+
+}
+
+.register-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.register-card{
+
+    width:100%;
+
+    max-width:450px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+.register-card h2{
+
+    color:#850000;
+
+    margin-bottom:10px;
+
+}
+
+.register-card p{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:18px;
+
+}
+
+.form-group label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.2s;
+
+}
+
+.form-group input:focus{
+
+    border-color:#850000;
+
+    box-shadow:0 0 0 3px rgba(133,0,0,.12);
+
+}
+
+.register-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#850000;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.register-btn:hover{
+
+    background:#6d0000;
+
+}
+
+.register-btn:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+.register-error{
+
+    background:#ffe8e8;
+
+    color:#b00020;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:18px;
+
+}
+
+.register-footer{
+
+    margin-top:24px;
+
+    text-align:center;
+
+    color:#666;
+
+}
+
+.register-footer a{
+
+    margin-left:6px;
+
+    color:#850000;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.register-footer a:hover{
+
+    text-decoration:underline;
+
+}
+
+@media(max-width:768px){
+
+    .register-page{
+
+        flex-direction:column;
+
+    }
+
+    .register-left{
+
+        padding:30px;
+
+    }
+
+    .register-left h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .register-card{
+
+        padding:30px;
+
+    }
+
+}
