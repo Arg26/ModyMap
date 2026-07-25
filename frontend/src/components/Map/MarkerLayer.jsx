@@ -1,6 +1,17 @@
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
+
 const startIcon = new L.Icon({
     iconUrl:
         "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
@@ -9,7 +20,6 @@ const startIcon = new L.Icon({
     iconSize: [25, 41],
     iconAnchor: [12, 41],
 });
-
 const endIcon = new L.Icon({
     iconUrl:
         "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
@@ -47,7 +57,6 @@ export default function MarkerLayer({
                         </Popup>
                     </Marker>
                 )}
-
                 {destinationBuilding && (
                     <Marker
                         position={[
