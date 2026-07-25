@@ -1,8 +1,9 @@
 # Build stage
-FROM gradle:8.10-jdk21 AS build
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
-RUN gradle bootJar --no-daemon
+RUN chmod +x gradlew
+RUN ./gradlew bootJar --no-daemon
 
 # Run stage
 FROM eclipse-temurin:21-jre
