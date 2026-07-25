@@ -25,7 +25,6 @@ public class DataSeeder implements CommandLineRunner {
     public DataSeeder(BuildingRepository buildingRepository,
                     UserRepository userRepository,
                     PasswordEncoder passwordEncoder) {
-
         this.buildingRepository = buildingRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -33,23 +32,17 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         ObjectMapper mapper = new ObjectMapper();
 
         if (buildingRepository.count() == 0) {
-
             InputStream input =
                     new ClassPathResource("ModyData.json").getInputStream();
-
             List<Map<String, Object>> buildings =
                     mapper.readValue(input,
                             new TypeReference<>() {
                             });
-
             for (Map<String, Object> b : buildings) {
-
                 Building building = new Building();
-
                 building.setName((String) b.get("NAME"));
                 building.setCategory((String) b.get("CATEGORY"));
                 building.setDescription((String) b.get("DESCRIPTION"));
@@ -58,45 +51,41 @@ public class DataSeeder implements CommandLineRunner {
                 building.setTiming((String) b.get("TIMING"));
                 building.setImageUrl((String) b.get("IMAGE_URL"));
                 building.setContacts((String) b.get("CONTACTS"));
-
                 Object emailObj = b.get("EMAIL");
-
                 if (emailObj instanceof String) {
                     building.setEmail((String) emailObj);
                 } else {
                     building.setEmail(mapper.writeValueAsString(emailObj));
                 }
-
                 buildingRepository.save(building);
             }
-
             System.out.println("Loaded Buildings: " + buildingRepository.count());
         }
 
         if (userRepository.count() == 0) {
+            ClassPathResource usersResource = new ClassPathResource("users40.json");
 
-            InputStream input =
-                    new ClassPathResource("users40.json").getInputStream();
-
-            List<User> users =
-                    mapper.readValue(input,
-                            new TypeReference<List<User>>() {
-                            });
-
-            for (User user : users) {
-
-                user.setPassword(
-                        passwordEncoder.encode(user.getPassword())
-                );
-
-                if (user.getRole() == null || user.getRole().isBlank()) {
-                    user.setRole("STUDENT");
-                }
-
-                userRepository.save(user);
+            if (!usersResource.exists()) {
+                System.out.println("users40.json not found on classpath, skipping user seeding.");
+                return;
             }
 
-            System.out.println("Loaded Users: " + userRepository.count());
+            try (InputStream input = usersResource.getInputStream()) {
+                List<User> users =
+                        mapper.readValue(input,
+                                new TypeReference<List<User>>() {
+                                });
+                for (User user : users) {
+                    user.setPassword(
+                            passwordEncoder.encode(user.getPassword())
+                    );
+                    if (user.getRole() == null || user.getRole().isBlank()) {
+                        user.setRole("STUDENT");
+                    }
+                    userRepository.save(user);
+                }
+                System.out.println("Loaded Users: " + userRepository.count());
+            }
         }
     }
 }
